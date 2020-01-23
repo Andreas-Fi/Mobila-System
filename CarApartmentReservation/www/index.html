@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
+    <link rel="stylesheet" href="datatables/datatables.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/jquery-2.2.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.4.min.js"></script>
+    <script src="datatables/datatables.min.js"></script>
+</head>
+
+<body>
+    <div data-role="page" id="mainPage">
+        <button id="carReservationButton">Car Reservation</button>
+        <button id="apartmentReservationButton">Apartment Reservation</button>
+        <button id="carReservationsButton">Check Car reservations</button>
+    </div>
+
+    <div data-role="page" id="carReservationPage">
+        <div>
+            <label for="carPageDateFrom">From: </label>
+            <input type="date" id="carPageDateFrom" name="carPageDateFrom" required />
+            <label for="carPageDateTo">To: </label>
+            <input type="date" id="carPageDateTo" name="carPageDateTo" required />
+            <label for="carPageCar">Car: </label>
+            <input type="text" id="carPageCar" name="carPageCar" placeholder="Click to select" required />
+            <label for="carPageCustomer">Customer: </label>
+            <input type="text" id="carPageCustomer" name="carPageCustomer" placeholder="Click to select" required />
+            <label for="carPageMileage">Mileage limit: </label>
+            <input type="number" id="carPageMileage" name="carPageMileage" placeholder="0 for no limit" required />
+            <br>
+            <input type="submit" value="Submit" id="carPageButtonSubmit">
+        </div>
+    </div>
+    <div data-role="page" id="carPage">
+        <input type="button" id="carPageCarBack" value="Confirm">
+        <br>
+
+        <table id="carPageTable" class="display responsive " style="width:100%"></table>
+    </div>
+    <div data-role="page" id="carCustomerPage">
+        <input type="button" id="carPageCustomerBack" value="Confirm">
+        <br>
+        <table id="carPageCustomerTable" class="display responsive " style="width:100%"></table>
+    </div>
+
+    <div data-role="page" id="apartmentReservationPage">
+        <form data-ajax="false">
+            <label for="apartmentPageDateFrom">From: </label>
+            <input type="date" id="apartmentPageDateFrom" name="apartmentPageDateFrom" required />
+            <label for="apartmentPageDateTo">To: </label>
+            <input type="date" id="apartmentPageDateTo" name="apartmentPageDateTo" required />
+            <label for="apartmentPageApartment">Apartment: </label>
+            <input type="text" id="apartmentPageApartment" name="apartmentPageApartment" placeholder="Click to select"
+                required />
+            <label for="apartmentPageCustomer">Customer: </label>
+            <input type="text" id="apartmentPageCustomer" name="apartmentPageCustomer" placeholder="Click to select"
+                required />
+            <br>
+            <input type="button" value="Submit" id="apartmentPageButtonSubmit">
+        </form>
+    </div>
+    <div data-role="page" id="apartmentPage">
+        <input type="button" id="apartmentPageBack" value="Confirm">
+        <br>
+
+        <table id="apartmentPageTable" class="display responsive " style="width:100%">
+        </table>
+    </div>
+    <div data-role="page" id="apartmentCustomerPage">
+        <input type="button" id="apartmentPageCustomerBack" value="Confirm">
+        <br>
+        <table id="apartmentPageCustomerTable" class="display responsive " style="width:100%"></table>
+    </div>
+
+    <div data-role="page" id="carReservationsPage">
+        <div data-role="header" data-add-back-btn="true">
+            <!--<a id="carReservationsPageBack" href="" data-href="ID" data-role="button" class="ui-btn-right">Delete</a>-->
+        </div>
+        <br>
+        <div data-role="content">
+            <table id="carReservationsPageTable" class="display responsive " style="width:100%"></table>
+        </div>
+    </div>
+    <div data-role="page" id="apartmentReservationsPage">
+        <div data-role="header" data-add-back-btn="true">
+            <a id="apartmentReservationsPageBack" href="" data-href="ID" data-role="button"
+                class="ui-btn-right">Delete</a>
+        </div>
+        <br>
+        <div data-role="content">
+            <table id="apartmentReservationsPageTable" class="display responsive " style="width:100%"></table>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
